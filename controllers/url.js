@@ -42,8 +42,11 @@ async function handleGenerateNewShortUrl(req, res) {
     });
 
     // Return the short URL ID
-    return res.json({ id: shortID });
+    // return res.json({ id: shortID }); at the time of backend i am sending json data 
+    return res.render("home",{ id: shortID } )// now at the time of frontend i am rendering home with my id
 }
+
+
 // //my route of analytics 
 // async function handleGetAnalytics(req, res){
 //     const shortid =req.params.shortId;

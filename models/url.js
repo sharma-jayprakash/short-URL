@@ -7,8 +7,14 @@ const mongoose = require("mongoose")
 const urlSchema = mongoose.Schema({
     shortid:{type:String, required:true, unique:true}, 
     redirectURL:{type:String, required:true,}, 
-    visitHistory:[{timestamp:{type:Number}}]
+    visitHistory:[{
+        timestamp: { type: Date, default: Date.now }, // Using Date type for timestamp
+        ipAddress: { type: String }, // Optional: track visitor's IP address
+        userAgent: { type: String }, // Optional: track visitor's user-agent
+      },]
 },  {timestamps:true}); 
+
+
 
 
 // models 
